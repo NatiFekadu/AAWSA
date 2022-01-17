@@ -3,11 +3,27 @@
 @{
     ViewData["Title"] = "Register";
     Layout = "~/Areas/Identity/Pages/_Authlayout.cshtml";
+
     List<SelectListItem> L = new List<SelectListItem>();
     L.Add(new SelectListItem() { Text = "Admin", Value = "1" });
     L.Add(new SelectListItem() { Text = "Headquarter Operator", Value = "2" });
     L.Add(new SelectListItem() { Text = "Technician", Value = "3" });
     L.Add(new SelectListItem() { Text = "Reception", Value = "4" });
+
+
+    List<SelectListItem> L2 = new List<SelectListItem>();
+    L2.Add(new SelectListItem() { Text = "Male", Value = "Male" });
+    L2.Add(new SelectListItem() { Text = "Female", Value = "FEmale" });
+
+    List<SelectListItem> L3 = new List<SelectListItem>();
+    L3.Add(new SelectListItem() { Text = "Megenagna", Value = "Megenagna" });
+    L3.Add(new SelectListItem() { Text = "Yeka", Value = "Yeka" });
+    L3.Add(new SelectListItem() { Text = "Bole", Value = "Bole" });
+  
+
+
+
+
 }
 
 
@@ -34,10 +50,10 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label asp-for="Input.Gender"></label>
-                <input asp-for="Input.Gender" class="form-control" />
-                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                <select asp-for="Input.Gender" class="form-control" asp-items="L2">
+                    <option selected disabled value="Select"> --- Gender ---</option>
+                </select>
             </div>
-
         </div>
 
         <div class="col-md-6">
@@ -50,24 +66,36 @@
         </div>
 
 
+
         <div class="col-md-6">
             <div class="form-group">
                 <label asp-for="Input.Role"></label>
-                <input asp-for="Input.Role" class="form-control" />
-                <span asp-validation-for="Input.Role" class="text-danger"></span>
+                <select asp-for="Input.Role" class="form-control" asp-items="L">
+                    <option selected disabled value="Select"> --- Role ---</option>
+                </select>
             </div>
-
-        </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label asp-for="Input.Branches"></label>
-                <input asp-for="Input.Branches" class="form-control" />
-                <span asp-validation-for="Input.Branches" class="text-danger"></span>
-            </div>
-
         </div>
 
     </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="Input.Branches"></label>
+            <select asp-for="Input.Branches" class="form-control" asp-items="L3">
+                <option selected disabled value="Select"> --- Branch ---</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="Input.PhoneNumber"></label>
+            <input asp-for="Input.PhoneNumber" class="form-control" />
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+        </div>
+    </div>
+
+
+
 
 
     <div class="form-group">
@@ -76,7 +104,19 @@
         <span asp-validation-for="Input.Email" class="text-danger"></span>
     </div>
 
+
+
     <div class="row">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Input.UserName"></label>
+                <input asp-for="Input.UserName" class="form-control" />
+                <span asp-validation-for="Input.UserName" class="text-danger"></span>
+            </div>
+
+        </div>
+
         <div class="col-md-6">
             <div class="form-group">
                 <label asp-for="Input.Password"></label>
@@ -94,8 +134,8 @@
 
         </div>
     </div>
-    
-    
+
+
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
     
