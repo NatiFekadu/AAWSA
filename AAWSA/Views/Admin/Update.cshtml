@@ -1,0 +1,12 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AAWSA.Areas.Identity.Data
+
+@inject UserManager<AAWSAUser> UserManager
+
+@model IEnumerable<AAWSAUser>
+
+<h1 class="bg-info text-white"> Update user Info</h1>
+<a asp-action="index" class="btn btn-secondary" > Back </a>
+<div asp-validation-summary="All" class="text-danger">
+
+</div>

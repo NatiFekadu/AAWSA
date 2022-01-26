@@ -2,7 +2,7 @@
 @model RegisterModel
 @{
     ViewData["Title"] = "Register";
-    Layout = "~/Areas/Identity/Pages/_Authlayout.cshtml";
+    Layout = "~/Areas/Identity/Pages/_Authlayout2.cshtml";
 
     List<SelectListItem> L = new List<SelectListItem>();
     L.Add(new SelectListItem() { Text = "Admin", Value = "1" });
@@ -17,9 +17,14 @@
 
     List<SelectListItem> L3 = new List<SelectListItem>();
     L3.Add(new SelectListItem() { Text = "Megenagna", Value = "Megenagna" });
-    L3.Add(new SelectListItem() { Text = "Yeka", Value = "Yeka" });
-    L3.Add(new SelectListItem() { Text = "Bole", Value = "Bole" });
-  
+    L3.Add(new SelectListItem() { Text = "Akaki_Kaliti", Value = "Akaki_Kaliti" });
+    L3.Add(new SelectListItem() { Text = " Addis_Ketema", Value = " Addis_Ketema" });
+    L3.Add(new SelectListItem() { Text = "Arada", Value = "Arada" });
+    L3.Add(new SelectListItem() { Text = "Gulele", Value = "Gulele" });
+    L3.Add(new SelectListItem() { Text = "Nifas Silk", Value = "Nifas_Silk" });
+    L3.Add(new SelectListItem() { Text = "Gurd Shola", Value = "Gurd_shola" });
+    L3.Add(new SelectListItem() { Text = "Mekanisa", Value = "Mekanisa" });
+
 
 
 
@@ -136,7 +141,7 @@
     </div>
 
 
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Create User</button>
 </form>
     
     <div class="col-md-6 col-md-offset-2">

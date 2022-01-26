@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace AAWSA.Models
 {
-    public enum Branches
+    public enum SubCity
     {
-        Akaki_Kaliti, Arada, Addis_Ketema, Mekanisa, Megenagna,
-        Gurd_shola, Nifas_Silk, Gulele
+        Akaki_Kaliti,Arada,Addis_Ketema,Bole,Yeka,
+            Gurd_shola,Nifas_Silk,Gulele,Kirkos,Lidet
     }
 }

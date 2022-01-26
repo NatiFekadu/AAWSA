@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace AAWSA.Models
 {
-    public enum Branches
+    public enum Status
     {
-        Akaki_Kaliti, Arada, Addis_Ketema, Mekanisa, Megenagna,
-        Gurd_shola, Nifas_Silk, Gulele
+        Closed,Open
     }
 }

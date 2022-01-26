@@ -7,7 +7,7 @@ using AAWSA.Models;
 using Microsoft.AspNetCore.Identity;
 using AAWSA.Areas.Identity.Data;
 
-namespace AAWSA.Controllers
+namespace Microsoft.AspNetCore.Identity
 {
     public class AdminController : Controller
 
@@ -15,14 +15,24 @@ namespace AAWSA.Controllers
 
         private UserManager<AAWSAUser> userManager;
 
+
         public AdminController(UserManager<AAWSAUser> usrMgr)
         {
             userManager = usrMgr;
         }
+
+
+
+
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+
+            var users = userManager.Users;
+            return View(users);
         }
+
+
 
         public ViewResult Create() => View();
 
@@ -46,6 +56,49 @@ namespace AAWSA.Controllers
                         ModelState.AddModelError("", error.Description);
                 }
             }
+            return View(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(string id)
+        {
+            AAWSAUser user = await userManager.FindByIdAsync(id);
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+                return RedirectToAction("Index");
+
+        }
+        [HttpPost]
+        public async Task <IActionResult> Update (string id,string UserN, string email,Role role_, string password)
+        {
+            AAWSAUser user = await userManager.FindByIdAsync(id);
+            if (user!=null)
+            {
+                if (!string.IsNullOrEmpty(UserN))
+                {
+                    user.UserName = UserN;
+                }
+                else
+                    ModelState.AddModelError("", "Email cannot be empty!");
+                if (!string.IsNullOrEmpty(email))
+                {
+                    user.Email = email;
+                }
+                else
+                    ModelState.AddModelError("", "Email cannot be empty!");
+                
+                    user.Role = role_;
+                if (!string.IsNullOrEmpty(password))
+                {
+                    // user.PasswordHash =
+                        }
+                else
+                    ModelState.AddModelError("", "Email cannot be empty!");
+            }
+
             return View(user);
         }
     }

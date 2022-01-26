@@ -82,10 +82,13 @@ namespace AAWSA.Areas.Identity.Pages.Account
             [Required]
             
             [DataType(DataType.Date)]
-            [Range(typeof(DateTime), "1/2/1920", "3/4/2000",
+
+            /*[Range(typeof(DateTime), "1/2/1920", "3/4/2000",
         ErrorMessage = "Value for {0} must be between {1} and {2}")]
+             */
+
             [Display(Name = "Birth date ")]
-            public DateTime Birthdate{ get; set; }
+           public DateTime Birthdate{ get; set; }
 
 
             [Required]

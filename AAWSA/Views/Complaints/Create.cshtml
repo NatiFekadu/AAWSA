@@ -1,0 +1,84 @@
+﻿@model AAWSA.Models.Complaint
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Complaint</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="date" class="control-label"></label>
+                <input asp-for="date" class="form-control" />
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="First_Name" class="control-label"></label>
+                <input asp-for="First_Name" class="form-control" />
+                <span asp-validation-for="First_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Branches" class="control-label"></label>
+                <select asp-for="Branches" class="form-control"></select>
+                <span asp-validation-for="Branches" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Special_Place_Name" class="control-label"></label>
+                <input asp-for="Special_Place_Name" class="form-control" />
+                <span asp-validation-for="Special_Place_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="status" class="control-label"></label>
+                <select asp-for="status" class="form-control"></select>
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="House_number" class="control-label"></label>
+                <input asp-for="House_number" class="form-control" />
+                <span asp-validation-for="House_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone_number" class="control-label"></label>
+                <input asp-for="Phone_number" class="form-control" />
+                <span asp-validation-for="Phone_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subcity" class="control-label"></label>
+                <select asp-for="Subcity" class="form-control"></select>
+                <span asp-validation-for="Subcity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Woreda" class="control-label"></label>
+                <input asp-for="Woreda" class="form-control" />
+                <span asp-validation-for="Woreda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CaseType" class="control-label"></label>
+                <input asp-for="CaseType" class="form-control" />
+                <span asp-validation-for="CaseType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComplaintType" class="control-label"></label>
+                <input asp-for="ComplaintType" class="form-control" />
+                <span asp-validation-for="ComplaintType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

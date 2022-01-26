@@ -1,0 +1,93 @@
+﻿
+@using Microsoft.AspNetCore.Identity
+@using AAWSA.Areas.Identity.Data
+
+@inject UserManager<AAWSAUser> UserManager
+
+@model IEnumerable<AAWSAUser>
+
+@{
+    ViewBag.Title = "All Users";
+}
+
+
+
+@if (Model.Any())
+
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h1 class="bg-info text-white">All Users</h1>
+            <a class="btn btn-secondary" id="login" asp-area="Identity" asp-page="/Account/Register"> Create User </a>
+            
+        </div>
+        <!-- /.box-header -->
+        <div class="panel-body">
+            <table class="table table-hover table-bordered table-condensed" id="AllUsers">
+                <thead>
+                    <tr>
+                        <td><b>Username</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Roles</b></td>
+                        <td><b>Edit</b></td>
+                        <td>Delete</td>
+
+                    </tr>
+                </thead>
+                @foreach (var user in Model)
+                {
+            <tr>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@user.Id">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-sm   btn-danger" asp-action="Update" asp-route-id="@user.Id">
+                        Delete
+                    </a>
+                </td>
+
+
+            </tr>
+
+                }
+            </table>
+        </div>
+
+        <div class="panel-footer">
+            <p class="box-title"><b>Total Users till @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count()</span></p>
+        </div>
+    </div>
+
+
+    @section scripts {
+        <script>
+
+            $(function () {
+            $('#AllUsers').DataTable({
+                "paging": true,
+                "lengthChange": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "autoWidth": true
+            });
+            });
+
+        </script>
+    }
+
+}
+
+else
+{
+
+
+    <div> No USers Created </div>
+}
+
+
