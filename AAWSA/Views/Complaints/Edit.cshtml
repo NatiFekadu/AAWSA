@@ -15,14 +15,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="id" />
             <div class="form-group">
-                <label asp-for="date" class="control-label"></label>
-                <input asp-for="date" class="form-control" />
-                <span asp-validation-for="date" class="text-danger"></span>
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="First_Name" class="control-label"></label>
-                <input asp-for="First_Name" class="form-control" />
-                <span asp-validation-for="First_Name" class="text-danger"></span>
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Branches" class="control-label"></label>
@@ -40,14 +45,14 @@
                 <span asp-validation-for="status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="House_number" class="control-label"></label>
-                <input asp-for="House_number" class="form-control" />
-                <span asp-validation-for="House_number" class="text-danger"></span>
+                <label asp-for="HouseNumber" class="control-label"></label>
+                <input asp-for="HouseNumber" class="form-control" />
+                <span asp-validation-for="HouseNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Phone_number" class="control-label"></label>
-                <input asp-for="Phone_number" class="form-control" />
-                <span asp-validation-for="Phone_number" class="text-danger"></span>
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Subcity" class="control-label"></label>
@@ -65,9 +70,9 @@
                 <span asp-validation-for="CaseType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ComplaintType" class="control-label"></label>
-                <input asp-for="ComplaintType" class="form-control" />
-                <span asp-validation-for="ComplaintType" class="text-danger"></span>
+                <label asp-for="Complaint_Type" class="control-label"></label>
+                <input asp-for="Complaint_Type" class="form-control" />
+                <span asp-validation-for="Complaint_Type" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

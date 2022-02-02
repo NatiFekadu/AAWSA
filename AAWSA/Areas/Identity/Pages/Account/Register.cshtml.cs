@@ -55,7 +55,9 @@ namespace AAWSA.Areas.Identity.Pages.Account
             public string FirstName { get; set; }
 
             [Required]
-            [DataType(DataType.Text)]
+
+            [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+            [Phone]
             [Display(Name = "Phone Number")]
             public string PhoneNumber { get; set; }
 

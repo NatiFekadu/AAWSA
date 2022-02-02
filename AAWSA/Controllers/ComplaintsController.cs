@@ -53,7 +53,7 @@ namespace AAWSA.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,date,First_Name,Branches,Special_Place_Name,status,House_number,Phone_number,Subcity,Woreda,CaseType,ComplaintType")] Complaint complaint)
+        public async Task<IActionResult> Create([Bind("id,Date,FirstName,LastName,Branches,Special_Place_Name,status,HouseNumber,PhoneNumber,Subcity,Woreda,CaseType,Complaint_Type")] Complaint complaint)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace AAWSA.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,date,First_Name,Branches,Special_Place_Name,status,House_number,Phone_number,Subcity,Woreda,CaseType,ComplaintType")] Complaint complaint)
+        public async Task<IActionResult> Edit(int id, [Bind("id,Date,FirstName,LastName,Branches,Special_Place_Name,status,HouseNumber,PhoneNumber,Subcity,Woreda,CaseType,Complaint_Type")] Complaint complaint)
         {
             if (id != complaint.id)
             {

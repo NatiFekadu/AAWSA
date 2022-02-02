@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AAWSA.Migrations.ComplaintDb
 {
     [DbContext(typeof(ComplaintDbContext))]
-    [Migration("20220126125439_ComplaintMigration2")]
-    partial class ComplaintMigration2
+    [Migration("20220202120944_Complaint")]
+    partial class Complaint
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,20 +34,23 @@ namespace AAWSA.Migrations.ComplaintDb
                     b.Property<string>("CaseType")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ComplaintType")
+                    b.Property<string>("Complaint_Type")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Fisrt_Name")
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("House_number")
+                    b.Property<int>("HouseNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("Phone_number")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Recipient")
+                    b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PhoneNumber")
+                        .HasColumnType("int");
 
                     b.Property<string>("Special_Place_Name")
                         .HasColumnType("nvarchar(max)");
@@ -57,9 +60,6 @@ namespace AAWSA.Migrations.ComplaintDb
 
                     b.Property<string>("Woreda")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("date")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("status")
                         .HasColumnType("int");

@@ -81,15 +81,16 @@
             </div>
         </div>
 
-    </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label asp-for="Input.Branches"></label>
-            <select asp-for="Input.Branches" class="form-control" asp-items="L3">
-                <option selected disabled value="Select"> --- Branch ---</option>
-            </select>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label asp-for="Input.Branches"></label>
+                <select asp-for="Input.Branches" class="form-control" asp-items="L3">
+                    <option selected disabled value="Select"> --- Branch ---</option>
+                </select>
+            </div>
         </div>
-    </div>
+   
+
 
     <div class="col-md-6">
         <div class="form-group">
@@ -99,17 +100,13 @@
         </div>
     </div>
 
-
-
-
-
     <div class="form-group">
         <label asp-for="Input.Email"></label>
         <input asp-for="Input.Email" class="form-control" />
         <span asp-validation-for="Input.Email" class="text-danger"></span>
     </div>
 
-
+    </div>
 
     <div class="row">
 

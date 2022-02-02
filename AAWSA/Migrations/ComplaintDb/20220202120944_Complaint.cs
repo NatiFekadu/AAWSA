@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AAWSA.Migrations.ComplaintDb
 {
-    public partial class ComplaintMigration : Migration
+    public partial class Complaint : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,19 +13,18 @@ namespace AAWSA.Migrations.ComplaintDb
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Fisrt_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Branches = table.Column<int>(type: "int", nullable: false),
                     Special_Place_Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     status = table.Column<int>(type: "int", nullable: false),
-                    House_number = table.Column<int>(type: "int", nullable: false),
-                    Phone_number = table.Column<int>(type: "int", nullable: false),
+                    HouseNumber = table.Column<int>(type: "int", nullable: false),
+                    PhoneNumber = table.Column<int>(type: "int", nullable: false),
                     Subcity = table.Column<int>(type: "int", nullable: false),
-                    Wereda = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    caseType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ComplaintType = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                 
-                    Recipient = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Woreda = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CaseType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Complaint_Type = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

@@ -14,10 +14,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.date)
+                @Html.DisplayNameFor(model => model.Date)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.First_Name)
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Branches)
@@ -29,10 +32,10 @@
                 @Html.DisplayNameFor(model => model.status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.House_number)
+                @Html.DisplayNameFor(model => model.HouseNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone_number)
+                @Html.DisplayNameFor(model => model.PhoneNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Subcity)
@@ -44,7 +47,7 @@
                 @Html.DisplayNameFor(model => model.CaseType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ComplaintType)
+                @Html.DisplayNameFor(model => model.Complaint_Type)
             </th>
             <th></th>
         </tr>
@@ -53,10 +56,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.date)
+                @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.First_Name)
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Branches)
@@ -68,10 +74,10 @@
                 @Html.DisplayFor(modelItem => item.status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.House_number)
+                @Html.DisplayFor(modelItem => item.HouseNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Phone_number)
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Subcity)
@@ -83,7 +89,7 @@
                 @Html.DisplayFor(modelItem => item.CaseType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ComplaintType)
+                @Html.DisplayFor(modelItem => item.Complaint_Type)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |

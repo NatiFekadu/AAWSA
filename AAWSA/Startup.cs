@@ -10,7 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AAWSA.Models;
-
+using Microsoft.AspNetCore.Mvc;
 
 namespace AAWSA
 {
@@ -26,11 +26,14 @@ namespace AAWSA
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddMvc();
             services.AddDbContext<ComplaintDbContext>
             (item => item.UseSqlServer(Configuration.GetConnectionString("AAWSADbContextConnection")));
+            services.AddSession();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +49,7 @@ namespace AAWSA
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSession();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -61,6 +65,7 @@ namespace AAWSA
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
+           
         }
     }
 }
