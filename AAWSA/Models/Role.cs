@@ -7,6 +7,9 @@ namespace AAWSA.Models
 {
     public enum Role
     {
-        Admin,Technician,Head_Office_Operator,Branch_Operator
+        Admin,
+        Technician,
+        Head_Office_Operator,
+        Branch_Operator
     }
 }

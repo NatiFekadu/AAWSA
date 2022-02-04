@@ -15,22 +15,44 @@
         <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Home</a>
 
     </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Disconnection</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">New connnection</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Reconnection</a>
 
-    <li class="nav-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Services</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Full Connection</a>
+        </div>
     </li>
+
 
     <li class="nav-item">
         <a id="Complaints" class="nav-link text-dark" asp-area="Views" asp-controller="Complaints" asp-action="Index" title="Complaint">Complaint</a>
-        
+
 
     </li>
 
     <li class="nav-item">
-        <a id="Complaint" class="nav-link text-dark"  asp-area="Views"asp-controller="Admin" asp-action="Index" title="Users">Users</a>
+        <a id="User" class="nav-link text-dark" asp-area="Views" asp-controller="Admin" asp-action="Index" title="Users">Users</a>
+
+    </li>
+    <li class="nav-item">
+        <a id="User" class="nav-link text-dark" asp-area="Views" asp-controller="UserRoles" asp-action="Index" title="Users">User Roles</a>
 
     </li>
 
+    <li class="nav-item">
+        <a id="User" class="nav-link text-dark" asp-area="Views" asp-controller="RoleManager" asp-action="Index" title="Users"> Role Manager </a>
+
+    </li>
+
+
+</ul>
+<ul class="navbar nav ml-auto">
 
 
     <li class="nav-item ">
@@ -44,17 +66,10 @@
             <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
         </form>
     </li>
-
 </ul>
-<ul class="dropdown-menu">
-    
-
-    <li class="dropdown-item">
-        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Services</a>
-    </li>
 
 
-</ul>
+
 
         }
 

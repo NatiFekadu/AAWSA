@@ -20,8 +20,12 @@ namespace AAWSA.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("AAWSADbContextConnection")));
 
-                services.AddDefaultIdentity<AAWSAUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                    .AddEntityFrameworkStores<AAWSADbContext>();
+
+                /*  services.AddDefaultIdentity<AAWSAUser>(options => options.SignIn.RequireConfirmedAccount = false)
+                   .AddEntityFrameworkStores<AAWSADbContext>(); */
+                services.AddIdentity<AAWSAUser, IdentityRole>()
+                  .AddEntityFrameworkStores<AAWSADbContext>()
+                  .AddDefaultUI().AddTokenProvider<DataProtectorTokenProvider<AAWSAUser>>(TokenOptions.DefaultProvider); ;
             });
         }
     }

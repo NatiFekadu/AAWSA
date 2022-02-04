@@ -7,6 +7,6 @@ namespace AAWSA.Models
 {
     public enum Status
     {
-        Closed,Open
+        Finished,Unfinished
     }
 }

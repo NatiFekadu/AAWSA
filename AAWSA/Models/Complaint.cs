@@ -14,18 +14,19 @@ namespace AAWSA.Models
         public DateTime Date { get; set; } = DateTime.Now;
 
 
-        [DisplayName("First Name")]
+        [DisplayName("FirstName")]
         public string FirstName{ get; set; }
 
 
-        [DisplayName("Last Name")]
+        [DisplayName("LastName")]
         public string LastName { get; set; }
-        
-        
+
+
+        [DisplayName("Branch")]
         public Branches Branches { get; set; }
 
 
-        [DisplayName("Special Place Name")]
+        [DisplayName("Special_Place_Name")]
         public string Special_Place_Name { get; set; }
 
         public Status status { get; set; }
@@ -37,9 +38,10 @@ namespace AAWSA.Models
         public int HouseNumber { get; set; }
 
 
-        [DisplayName("Phone Number")]
-        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+        [DisplayName("PhoneNumber")]
+        //  [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
         [Phone]
+
         public int PhoneNumber { get; set; }
         
         public SubCity Subcity { get; set; }

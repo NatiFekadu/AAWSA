@@ -26,7 +26,7 @@ namespace AAWSA.Areas.Identity.Data
 
 
         [PersonalData]
-        [Required]
+        
 
         [DataType(DataType.Date)]
 

@@ -8,6 +8,6 @@ namespace AAWSA.Models
     public enum SubCity
     {
         Akaki_Kaliti,Arada,Addis_Ketema,Bole,Yeka,
-            Gurd_shola,Nifas_Silk,Gulele,Kirkos,Lidet
+            Gurd_shola,Nifas_Silk,Gulele,Kirkos,Lideta
     }
 }

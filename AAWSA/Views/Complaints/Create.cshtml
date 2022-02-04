@@ -3,6 +3,49 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<SelectListItem> L3 = new List<SelectListItem>();
+    L3.Add(new SelectListItem() { Text = "Megenagna", Value = "Megenagna" });
+    L3.Add(new SelectListItem() { Text = "Akaki Kaliti", Value = "Akaki_Kaliti" });
+    L3.Add(new SelectListItem() { Text = " Addis Ketema", Value = " Addis_Ketema" });
+    L3.Add(new SelectListItem() { Text = "Arada", Value = "Arada" });
+    L3.Add(new SelectListItem() { Text = "Gulele", Value = "Gulele" });
+    L3.Add(new SelectListItem() { Text = "Nifas Silk", Value = "Nifas_Silk" });
+    L3.Add(new SelectListItem() { Text = "Gurd Shola", Value = "Gurd_shola" });
+    L3.Add(new SelectListItem() { Text = "Mekanisa", Value = "Mekanisa" });
+
+    List<SelectListItem> L = new List<SelectListItem>();
+    L.Add(new SelectListItem() { Text = "Major", Value = "Major" });
+    L.Add(new SelectListItem() { Text = "Critical", Value = "Critical" });
+    L.Add(new SelectListItem() { Text = " Normal", Value = " Normal" });
+
+
+    List<SelectListItem> L2 = new List<SelectListItem>();
+    L2.Add(new SelectListItem() { Text = "Finished", Value = "Finished" });
+    L2.Add(new SelectListItem() { Text = "Unfinished", Value = "Unfinished" });
+
+
+    // subcity
+
+    List<SelectListItem> L4 = new List<SelectListItem>();
+    L4.Add(new SelectListItem() { Text = "Bole", Value = "Bole" });
+    L4.Add(new SelectListItem() { Text = "Akaki Kaliti", Value = "Akaki_Kaliti" });
+    L4.Add(new SelectListItem() { Text = " Addis Ketema", Value = " Addis_Ketema" });
+    L4.Add(new SelectListItem() { Text = "Arada", Value = "Arada" });
+    L4.Add(new SelectListItem() { Text = "Yeka", Value = "Yeka" });
+    L4.Add(new SelectListItem() { Text = "Gulele", Value = "Gulele" });
+    L4.Add(new SelectListItem() { Text = "Nifas Silk", Value = "Nifas_Silk" });
+    L4.Add(new SelectListItem() { Text = "Gulele", Value = "GUlele" });
+    L4.Add(new SelectListItem() { Text = "Kirkos", Value = "Kirkos" });
+
+
+
+
+
+
+
+
+
 }
 
 <h1>Create</h1>
@@ -39,7 +82,9 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Branches" class="control-label"></label>
-                <select asp-for="Branches" class="form-control"></select>
+                <select asp-for="Branches" class="form-control" asp-items="L3">
+                    <option selected disabled value="Select"> Branch </option>
+                </select>
                 <span asp-validation-for="Branches" class="text-danger"></span>
             </div>
         </div>
@@ -55,7 +100,10 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="status" class="control-label"></label>
-                <select asp-for="status" class="form-control"></select>
+                <select asp-for="status" class="form-control" asp-items="L2">
+                    <option selected disabled value="Select">Status</option>
+                </select>
+
                 <span asp-validation-for="status" class="text-danger"></span>
             </div>
         </div>
@@ -81,7 +129,9 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="Subcity" class="control-label"></label>
-                <select asp-for="Subcity" class="form-control"></select>
+                <select asp-for="Subcity" class="form-control" asp-items="L4">
+                    <option selected disabled value="Select" > Subcity</option>
+                </select>
                 <span asp-validation-for="Subcity" class="text-danger"></span>
             </div>
         </div>
@@ -99,7 +149,9 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label asp-for="CaseType" class="control-label"></label>
-                <input asp-for="CaseType" class="form-control" />
+                <select asp-for="CaseType" class="form-control" asp-items="L" >
+                    <option selected disabled value="Select"> CaseType</option>
+                </select>
                 <span asp-validation-for="CaseType" class="text-danger"></span>
             </div>
         </div>
