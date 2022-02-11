@@ -63,9 +63,18 @@ namespace AAWSA
 
             });
 
-           // services.AddIdentity<AAWSAUser, IdentityRole>()
-              //      .AddEntityFrameworkStores<AAWSADbContext>()
-              //      .AddDefaultUI();
+          /* services.AddMvc().AddRazorPagesOptions(options => {
+                options.Conventions.AddAreaPageRoute("Identity", "/Account/Login", "");
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_3_0);*/
+
+
+
+            
+
+
+            // services.AddIdentity<AAWSAUser, IdentityRole>()
+            //      .AddEntityFrameworkStores<AAWSADbContext>()
+            //      .AddDefaultUI();
 
             //services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AAWSADbContext>();
 
@@ -93,14 +102,39 @@ namespace AAWSA
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-            });
-           
+          /*   app.UseEndpoints(endpoints =>
+              {
+                  endpoints.MapControllerRoute(
+                      name: "default",
+                      pattern: "{controller=Home}/{action=Index}/{id?}");
+                  endpoints.MapRazorPages();
+              });
+          */
+            
+            
+              app.UseEndpoints(endpoints =>
+              {
+                  endpoints.MapAreaControllerRoute(
+                     name: "myIdentity",
+                     areaName: "Identity",
+                     pattern: "Identity/{controller=Home}/{action=Index}/{id?}");
+
+                  
+
+                  endpoints.MapControllerRoute(
+                     name: "default",
+                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+                  endpoints.MapControllerRoute(
+                      name: "registration",
+                      pattern:"Views /{ controller = Admin}/{ action = Index}/{ id ?}");
+
+
+                    endpoints.MapRazorPages();
+
+              }); 
+            
         }
     }
 }

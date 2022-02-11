@@ -6,12 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AAWSA.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using AAWSA.Areas.Identity.Data;
+
 
 namespace AAWSA.Controllers
 {
     public class ComplaintsController : Controller
     {
         private readonly ComplaintDbContext _context;
+     //  private readonly UserManager<AAWSAUser> _userManager;
 
         public ComplaintsController(ComplaintDbContext context)
         {
@@ -19,9 +24,55 @@ namespace AAWSA.Controllers
         }
 
         // GET: Complaints
-        public async Task<IActionResult> Index()
+       //[ Authorize(Roles = " Head_Office_Operator")]
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            return View(await _context.Complaints.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
+            ViewData["currentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+
+            var Complaints = from c in _context.Complaints
+                           select c;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                Complaints = Complaints.Where(c => c.LastName.Contains(searchString)
+                                       || c.FirstName.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    Complaints = Complaints.OrderByDescending(c => c.FirstName);
+                    break;
+                case "Date":
+                    Complaints = Complaints.OrderBy(c => c.Date);
+                    break;
+                case "date_desc":
+                    Complaints = Complaints.OrderByDescending(c => c.Date);
+                    break;
+                default:
+                   Complaints = Complaints.OrderBy(c => c.LastName);
+                    break;
+            }
+            //  var user = await _userManager.GetUserAsync(User);
+            // var CurrentuserBranche =user.Branches;
+
+            //ViewBag.Br = CurrentuserBranche.ToString();
+
+            int pageSize = 5;
+            return View(await PaginatedList<Complaint>.CreateAsync(Complaints.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Complaints/Details/5

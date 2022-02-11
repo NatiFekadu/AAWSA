@@ -4,90 +4,124 @@
 
 @inject UserManager<AAWSAUser> UserManager
 
-@model IEnumerable<AAWSAUser>
+   
+@model  PaginatedList<AAWSAUser>
 
-@{
-    ViewBag.Title = "All Users";
-}
+        @{
+            ViewBag.Title = "All Users";
+        }
 
 
 
-@if (Model.Any())
+        @if (Model.Any())
 
-{
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h1 class="bg-info text-white">All Users</h1>
-            <a class="btn btn-secondary" id="login" asp-area="Identity" asp-page="/Account/Register"> Create User </a>
-            
+        {
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h1 class="bg-info text-white">All Users</h1>
+        <a class="btn btn-secondary" id="login" asp-area="Identity" asp-page="/Account/Register"> Create User </a>
+
+    </div>
+    <!-- /.box-header -->
+
+    <form asp-action="Index" method="get" class=" ml-auto">
+        <div class="form-actions no-color">
+            <p>
+                Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Search" class="btn btn-default" /> |
+                <a asp-action="Index">Back to Full List</a>
+            </p>
         </div>
-        <!-- /.box-header -->
-        <div class="panel-body">
-            <table class="table table-hover table-bordered table-condensed" id="AllUsers">
-                <thead>
-                    <tr>
-                        <td><b>Username</b></td>
-                        <td><b>Email</b></td>
-                        <td><b>Roles</b></td>
-                        <td><b>Edit</b></td>
-                        <td>Delete</td>
-
-                    </tr>
-                </thead>
-                @foreach (var user in Model)
-                {
-            <tr>
-                <td>@user.UserName</td>
-                <td>@user.Email</td>
-                <td>@user.Role</td>
-                <td>
-                    <a class="btn btn-sm btn-primary" asp-action="Update" asp-route-id="@user.Id">
-                        Edit
-                    </a>
-                </td>
-                <td>
-                    <a class="btn btn-sm   btn-danger" asp-action="Update" asp-route-id="@user.Id">
-                        Delete
-                    </a>
-                </td>
+    </form>
 
 
-            </tr>
+    <div class="panel-body">
+        <table class="table table-hover table-bordered table-condensed" id="AllUsers">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"> First Name</a>
+                    </th>
 
-                }
-            </table>
-        </div>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"> User Name</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"> Email</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]"> Roles</a>
+                    </th>
 
-        <div class="panel-footer">
-            <p class="box-title"><b>Total Users till @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count()</span></p>
-        </div>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]"> Birth Date</a>
+                    </th>
+
+                   
+
+                </tr>
+            </thead>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.FirstName</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.Role</td>
+                    <td>@user.BirthDate</td>
+
+                    <td>
+                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                            <button type="submit" onclick="return confirm('Delete user !!!')" class="btn btn-sm btn-danger">
+                                Delete
+                            </button>
+                        </form>
+                    </td>
+
+                </tr>
+
+            }
+        </table>
+        @{
+            var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+            var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+        }
+
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex - 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @prevDisabled">
+            Previous
+        </a>
+        <a asp-action="Index"
+           asp-route-sortOrder="@ViewData["CurrentSort"]"
+           asp-route-pageNumber="@(Model.PageIndex + 1)"
+           asp-route-currentFilter="@ViewData["CurrentFilter"]"
+           class="btn btn-default @nextDisabled">
+            Next
+        </a>
+
     </div>
 
-
-    @section scripts {
-        <script>
-
-            $(function () {
-            $('#AllUsers').DataTable({
-                "paging": true,
-                "lengthChange": true,
-                "searching": true,
-                "ordering": true,
-                "info": true,
-                "autoWidth": true
-            });
-            });
-
-        </script>
-    }
-
-}
-
-else
-{
+    @* <div class="panel-footer">
+            <p class="box-title"><b>Total Users till @String.Format("{0 : dddd, MMMM d, yyyy}", DateTime.Now)  : </b><span class="label label-primary">@Model.Count()</span></p>
+        </div>
+    *@
+</div>
 
 
-    <div> No USers Created </div>
-}
+            @section scripts {
+                
+            }
+
+        }
+
+        else
+        {
+
+
+            <div> No USers Created </div>
+        }
 
 

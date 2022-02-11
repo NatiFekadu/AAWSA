@@ -32,6 +32,7 @@ namespace AAWSA.Controllers
                 thisViewModel.Email = user.Email;
                 thisViewModel.FirstName = user.FirstName;
                 thisViewModel.LastName = user.LastName;
+                thisViewModel.UserName = user.UserName;
                 thisViewModel.Role = await GetUserRoles(user);
                 userRolesViewModel.Add(thisViewModel);
             }

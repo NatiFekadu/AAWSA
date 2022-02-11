@@ -40,7 +40,7 @@ namespace AAWSA.Models
 
         [DisplayName("PhoneNumber")]
         //  [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
-        [Phone]
+        //[Phone]
 
         public int PhoneNumber { get; set; }
         

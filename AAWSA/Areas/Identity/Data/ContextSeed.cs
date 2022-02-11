@@ -39,9 +39,6 @@ namespace AAWSA.Areas.Identity.Data
                 {
                     await userManager.CreateAsync(defaultUser, "123Pa$$word.");
                     await userManager.AddToRoleAsync(defaultUser,Role.Admin.ToString());
-                    await userManager.AddToRoleAsync(defaultUser, Role.Branch_Operator.ToString());
-                    await userManager.AddToRoleAsync(defaultUser,Role.Head_Office_Operator.ToString());
-                    await userManager.AddToRoleAsync(defaultUser,Role.Technician.ToString());
                 }
 
             }

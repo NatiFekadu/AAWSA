@@ -11,6 +11,7 @@ namespace AAWSA.Models
     {
         public ComplaintDbContext(DbContextOptions options) :base (options)
         {
+
         }
 
         public DbSet<Complaint> Complaints { get; set; }

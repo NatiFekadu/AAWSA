@@ -1,4 +1,5 @@
 ﻿using AAWSA.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -6,6 +7,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
+using AAWSA.Areas.Identity.Data;
 
 namespace AAWSA.Controllers
 {
@@ -20,7 +23,15 @@ namespace AAWSA.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
+            }
+
+            else
+            {
+                return RedirectToAction("Login", "Account", new { area = "Identity" });
+            }
         }
 
         public IActionResult Privacy()

@@ -18,7 +18,7 @@
     <thead>
         <tr>
 
-            <th>Id</th>
+            @*<th>Id</th> *@
             <th>Role</th>
         </tr>
     </thead>
@@ -26,7 +26,8 @@
         @foreach (var role in Model)
         {
         <tr>
-            <td>@role.Id</td>
+            @* <td>@role.Id</td>*@
+
             <td>@role.Name</td>
             <td>
                 <form asp-action="Delete" asp-route-id="@role.Id" method="post">
