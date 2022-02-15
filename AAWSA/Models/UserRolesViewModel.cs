@@ -12,6 +12,7 @@ namespace AAWSA.Models
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
+        public Branches branches { get; set; }
         public IEnumerable<string> Role { get; set; }
     }
     public class ManageUserRolesViewModel

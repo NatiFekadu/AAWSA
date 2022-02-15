@@ -44,35 +44,35 @@ namespace Microsoft.AspNetCore.Identity
 
 
             var userrs = from u in userManager.Users
-                                       select u;
+                         select u;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 userrs = userrs.Where(u => u.LastName.Contains(searchString)
-                                       || u.FirstName.Contains(searchString));
+                                       || u.FirstName.Contains(searchString) || u.UserName.Contains(searchString));
             }
 
             switch (sortOrder)
             {
                 case "name_desc":
-                    userrs = userrs.OrderBy(u => u.FirstName);
-                    
+                    userrs = userrs.OrderByDescending(u => u.FirstName);
+
                     break;
                 case "Date":
-                    userrs = userrs.OrderBy(u => u.BirthDate);
+                    userrs = userrs.OrderByDescending(u => u.BirthDate);
                     break;
                 case "date_desc":
-                    userrs = userrs.OrderBy(u => u.BirthDate);
+                    userrs = userrs.OrderByDescending(u => u.BirthDate);
                     break;
                 default:
-                    userrs = userrs.OrderBy(u => u.LastName);
+                    userrs = userrs.OrderByDescending(u => u.LastName);
                     break;
             }
 
             int pageSize = 6;
-            
 
-            return View( await PaginatedList<AAWSAUser>.CreateAsync(userrs.AsNoTracking(), pageNumber ?? 1, pageSize));
+
+            return View(await PaginatedList<AAWSAUser>.CreateAsync(userrs.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
 
@@ -86,7 +86,7 @@ namespace Microsoft.AspNetCore.Identity
             {
                 AAWSAUser appUser = new AAWSAUser
                 {
-                   
+
                     Email = user.Email
                 };
 
@@ -101,7 +101,7 @@ namespace Microsoft.AspNetCore.Identity
             }
             return View(user);
         }
-    private void Errors(IdentityResult result)
+        private void Errors(IdentityResult result)
         {
             foreach (IdentityError error in result.Errors)
                 ModelState.AddModelError("", error.Description);
@@ -122,5 +122,24 @@ namespace Microsoft.AspNetCore.Identity
                 ModelState.AddModelError("", "User Not Found");
             return View("Index", userManager.Users);
         }
-    }
+
+        public async Task<IActionResult> lockuser(String id)
+        {
+            AAWSAUser user = await userManager.FindByIdAsync(id);
+
+            
+
+            return   RedirectToAction("Index");
+        }
+
+          public async Task<IActionResult> unlockuser(String id)
+        {
+            AAWSAUser user = await userManager.FindByIdAsync(id);
+
+            
+
+            return  RedirectToAction("Index");
+        }
+
+        }
 }

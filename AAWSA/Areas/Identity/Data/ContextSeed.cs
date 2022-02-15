@@ -29,6 +29,7 @@ namespace AAWSA.Areas.Identity.Data
                 FirstName = "Natnael",
                 LastName = "Fekadu",
                 PhoneNumber="0942009596",
+                Branches = Branches.HeadQuarter,
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true
             };

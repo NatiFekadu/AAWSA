@@ -8,6 +8,6 @@ namespace AAWSA.Models
     public enum Branches
     {
         Akaki_Kaliti, Arada, Addis_Ketema, Mekanisa, Megenagna,
-        Gurd_shola, Nifas_Silk, Gulele
+        Gurd_shola, Nifas_Silk, Gulele,HeadQuarter
     }
 }

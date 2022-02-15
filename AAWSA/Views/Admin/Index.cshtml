@@ -56,29 +56,49 @@
                     <th>
                         <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]"> Birth Date</a>
                     </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]"> Brancehs</a>
+                    </th>
 
-                   
+
+
 
                 </tr>
             </thead>
             @foreach (var user in Model)
             {
-                <tr>
-                    <td>@user.FirstName</td>
-                    <td>@user.UserName</td>
-                    <td>@user.Email</td>
-                    <td>@user.Role</td>
-                    <td>@user.BirthDate</td>
+        <tr>
+            <td>@user.FirstName</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>@user.Role</td>
+            <td>@user.BirthDate</td>
+            <td>@user.Branches</td>
 
-                    <td>
-                        <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                            <button type="submit" onclick="return confirm('Delete user !!!')" class="btn btn-sm btn-danger">
-                                Delete
-                            </button>
-                        </form>
-                    </td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                    <button type="submit" onclick="return confirm('Delete user !!!')" class="btn btn-sm btn-danger">
+                        Delete
+                    </button>
+                </form>
+            </td>
 
-                </tr>
+            @* <td>
+            <form asp-action="lockuser" asp-route-id="@user.Id" method="post">
+                <button type="submit" onclick="return confirm('lock user !!!')" class="btn btn-sm btn-info">
+                    lock
+                </button>
+            </form>
+        </td>
+        <td>
+            <form asp-action="unlockuser" asp-route-id="@user.Id" method="post">
+                <button type="submit" onclick="return confirm('unlock user !!!')" class="btn btn-sm btn-block">
+                    unlock user
+                </button>
+            </form>
+        </td>
+            *@
+        </tr>
 
             }
         </table>

@@ -16,7 +16,7 @@ namespace AAWSA.Controllers
     public class ComplaintsController : Controller
     {
         private readonly ComplaintDbContext _context;
-     //  private readonly UserManager<AAWSAUser> _userManager;
+      private readonly UserManager<AAWSAUser> _userManager;
 
         public ComplaintsController(ComplaintDbContext context)
         {

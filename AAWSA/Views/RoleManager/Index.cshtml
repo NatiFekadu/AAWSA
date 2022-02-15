@@ -30,7 +30,7 @@
 
             <td>@role.Name</td>
             <td>
-                <form asp-action="Delete" asp-route-id="@role.Id" method="post">
+                <form asp-action="Delete" asp-route-id="@role.Id"   onclick="return confirm('Are You sure to delete this role')" method="post">
                     <button type="submit" class="btn btn-sm btn-danger">
                         Delete
                     </button>

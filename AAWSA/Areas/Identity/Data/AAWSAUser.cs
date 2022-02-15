@@ -59,7 +59,7 @@ namespace AAWSA.Areas.Identity.Data
         public Branches Branches { get; set; }
 
 
-
+       
 
 
     }
